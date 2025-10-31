@@ -4,3 +4,4 @@
 #Monetize: Thoeretically, we can charge for workshops/classes
 # Abigail Televitckiy
 # Vincent Lin
+# Matthew Qin
