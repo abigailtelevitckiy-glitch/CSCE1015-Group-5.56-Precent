@@ -5,3 +5,4 @@
 # Abigail Televitckiy
 # Vincent Lin
 # Matthew Qin
+# Connor Hetterley
