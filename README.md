@@ -3,3 +3,4 @@
 #The goal/ idea: Teaching People how to do a coding Olympiad problem, a short tutorial workshop. 
 #Monetize: Thoeretically, we can charge for workshops/classes
 # Abigail Televitckiy
+# Vincent Lin
