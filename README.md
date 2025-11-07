@@ -14,6 +14,14 @@ This specific portion of the project will demonstrate a good and bad example of 
 
 ## Project Structure 
 
+## How to Contribute
+1. Find 3 examples on usaco.org, that have understandable solutions for beginners.
+2. For each problem:
+    Create a good example
+    Create a bad example
+    Put your code into a new file with titled 
+    # [PROBLEM NAME],[BAD/GOOD]
+
 ## Current Status
 
 ## License
