@@ -23,5 +23,7 @@ This specific portion of the project will demonstrate a good and bad example of 
    Provide annotation about time complexity(efficency) of the codes and segments of code that is improved or can be improved. 
 
 ## Current Status
+Front page created, needs to be formatted to look better. 
 
 ## License
+Distributed under the Unlicense License.
