@@ -20,6 +20,7 @@ This specific portion of the project will demonstrate a good and bad example of 
     Create a good example
     Create a bad example
     Put your code into a new file with titled [Example #: name of problem year]
+   Provide annotation about time complexity(efficency) of the codes and segments of code that is improved or can be improved. 
 
 ## Current Status
 
