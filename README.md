@@ -19,8 +19,7 @@ This specific portion of the project will demonstrate a good and bad example of 
 2. For each problem:
     Create a good example
     Create a bad example
-    Put your code into a new file with titled 
-    # [PROBLEM NAME],[BAD/GOOD]
+    Put your code into a new file with titled [Example #: name of problem year]
 
 ## Current Status
 
