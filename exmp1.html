@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotate and Shift</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        header, footer {
+            background: #222;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        main {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Sample codes for Rotate and Shift, USACO 2023 US open</h1>
+    </header>
+
+    <main>
+	<p>Link to the question:https://usaco.org/index.php?page=viewproblem2&cpid=1325</p>
+	<h2>Example 1:O(N^2)</h2>
+        <p>This code gives you about half the points, when N<=1000 and T<=10000. The problem is not too hard to understand and this is just a simple brute-force code that simulates exactly what the problen ask for.</p>
+        <pre><code>
+	#include &lt;bits/stdc++.h>
+	using namespace std;
+	const int mx = 200005;
+	int A[mx];
+	int ans[mx]; 
+	int main(){
+   	cin.tie(0)->sync_with_stdio(0);
+    	int N, K, T; cin >> N >> K >> T;
+    	for(int i = 1; i <= K; i++){
+     	   cin >> A[i];
+   	 }
+ 
+    	for(int i = 0; i < N; i++){
+        	ans[i] = i;
+    	}
+ 
+    	for(int t = 1; t <= T; t++){
+        	//active positions rotate
+        	vector<int> vals;
+        	for(int i = 1; i <= K; i++){
+            		vals.push_back(ans[A[i]]);
+        	}
+        	for(int i = 0; i < K; i++){
+			ans[A[i+1]] = vals[(i-1+(vals.size())) % (vals.size())];
+        	}
+      	  	for(int i = 1; i <= K; i++){
+			A[i] = (A[i]+1) % N;
+        	}
+   	}
+    	for(int i = 0; i < N; i++){
+        	cout << ans[i];
+        	if(i+1 < N) cout << " ";
+    	}
+    	cout << "\n";
+}
+	</code></pre>
+	<h2>Example 2:O(N)</h2>
+        <p>This code gives you full points, when N<=2*10^5. After understanding the brute-force code, you need to improve the algorithm to O(N). To do that, you need realized a pattern that all of the cows between 2 active position always stays there. The positioning of each independent set of cows between the active positions will change by a pattern with a period the same as the length of it. We can loop through each of these sets and the each cows in the set. Even though there are 2 loops, it is actually a O(N) algorithm.</p>
+        <pre><code>
+	#include &lt;bits/stdc++.h>
+	using namespace std;
+	int ans[200010];
+	int act[200010];
+	int main() {
+	    int n,k,t;
+	    scanf("%d %d %d",&n,&k,&t);
+	    for(int i=1;i<=k;i++)
+	    {
+	        scanf("%d",&act[i]);
+	    }
+	    int dif=act[1]+n-act[k];
+	    for(int i=act[k];i<n;i++)
+	    {
+	        int cpos=0;
+	        if(t>=i-act[k]+1)
+	            cpos=dif;
+	        cpos+=((t-i+act[k]-1)/dif)*dif;
+	        ans[(i+cpos)%n]=i;
+	    }
+	    for(int i=0;i<act[i];i++)
+	    {
+	        int cpos=0;
+	        if(t>=i+1)
+	            cpos=dif;
+	        cpos+=((t-i-1)/dif)*dif;
+	        ans[(i+cpos)%n]=i;
+	    }
+	    for(int i=1;i<=k-1;i++)
+	    {
+	        dif=act[i+1]-act[i];
+	        for(int j=act[i];j<act[i+1];j++)
+	        {
+	            int cpos=0;
+	            if(t>=j-act[i]+1)
+	                cpos=dif;
+	            cpos+=((t-j+act[i]-1)/dif)*dif;
+	            ans[(j+cpos)%n]=j;
+	        }
+	    }
+	    for(int i=0;i&lt;n-1;i++)
+	    {
+	        printf("%d ",ans[i]);
+	    }
+	    printf("%d",ans[n-1]);
+	    return 0;
+	}
+	</code></pre>
+    </main>
+
+</body>
+</html>
