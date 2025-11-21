@@ -17,6 +17,7 @@ Language: HTML
 
 ## Project Structure 
 The frontend consists of a basic website with links to the examples made by the team. 
+Unzip the file before accessing the page. 
 
 ## How to Contribute
 1. Find an example on usaco.org, that have understandable solutions for beginners.
