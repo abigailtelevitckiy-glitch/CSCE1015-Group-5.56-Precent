@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Balancing Bacteria</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        header, footer {
+            background: #222;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+        }
+        main {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Sample codes for Balancing Bacteria, USACO 2024 Jan</h1>
+    </header>
+
+    <main>
+	<p>Link to the question:https://usaco.org/index.php?page=viewproblem2&cpid=1373</p>
+	<h2>Example 1:O(N^2)</h2>
+        <p>This code gives you about half the points, when N<=10^3. You need to realize that you can only change +/- 1 to the furthest block, and therefore you should change the furthest block first, and you can ignore it after it reaches 0 bacteria level. The code below brute-force the problem</p>
+        <pre><code>
+	#include&lt;bits/stdc++.h>
+	using namespace std;
+	long long g[200010];
+	int main()
+	{
+		int n;
+		cin>>n;
+		for(int i=1;i<=n;i++)
+		{
+			cin>>g[i];
+		}
+		long long sum=0;
+		for(int i=1;i<=n;i++)
+		{
+			if(g[i]==0)
+				continue;
+			sum+=abs(g[i]);
+			long long k=0;
+			long long c=0;
+			k=-g[i];
+			c=k;
+			for(int j=i;j<=n;j++)
+			{
+				g[j]+=c;
+				c+=k;
+			}
+		}
+		cout&lt;&lt;sum;
+		return 0;
+	}
+	</code></pre>
+	<h2>Example 2:O(N)</h2>
+        <p>This code gives you full points, when N<=2*10^5. After understanding the brute-force code, you need to improve the algorithm to O(N). To do that, you need to store the amount you need to change each block for each operation without looping through everything, instead changing everything with one loop. Below is the code that does this.</p>
+        <pre><code>
+	#include&lt;bits/stdc++.h>
+	using namespace std;
+	long long g[200010];
+	int main()
+	{
+		int n;
+		cin>>n;
+		for(int i=1;i<=n;i++)
+		{
+			cin>>g[i];
+		}
+		long long sum=0;
+		for(int i=1;i<=n;i++)
+		{
+			if(g[i]==0)
+				continue;
+			sum+=abs(g[i]);
+			long long k=0;
+			long long c=0;
+			k=-g[i];
+			c=k;
+			for(int j=i;j<=n;j++)
+			{
+				g[j]+=c;
+				c+=k;
+			}
+		}
+		cout&lt;&lt;sum;
+		return 0;
+	}
+	</code></pre>
+    </main>
+
+</body>
+</html>
+
