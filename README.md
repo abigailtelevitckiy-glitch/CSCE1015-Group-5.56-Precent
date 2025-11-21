@@ -9,13 +9,17 @@ This specific portion of the project will demonstrate a good and bad example of 
 # Connor Hetterley
 
 ## Setup Instructions
+Downloading the repository will give you access to the HTML site with examples. 
 
 ## Technologies Used
+VS Code
+Language: HTML
 
 ## Project Structure 
+The frontend consists of a basic website with links to the examples made by the team. 
 
 ## How to Contribute
-1. Find 3 examples on usaco.org, that have understandable solutions for beginners.
+1. Find an example on usaco.org, that have understandable solutions for beginners.
 2. For each problem:
     Create a good example
     Create a bad example
@@ -25,3 +29,4 @@ This specific portion of the project will demonstrate a good and bad example of 
 ## Current Status
 
 ## License
+MIT License (see page for more details) 
